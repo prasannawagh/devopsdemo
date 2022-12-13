@@ -7,6 +7,9 @@ pipeline {
           image 'python:alpine3.17'
         }
       }
+      steps {
+        sh 'python3 --version'
+      }
     }
     stage('version') {
       steps {
