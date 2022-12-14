@@ -3,9 +3,11 @@ pipeline {
   stages {
     stage('hello') {
       steps {
-        def data = readFile(file: '/config/sql/test1.sql')
-        println(data)
+         script {
+            def data = readFile(file: '/config/sql/test1.sql')
+            println(data)
+           }
+         }        
       }
     }
   }
-}
