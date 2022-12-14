@@ -1,7 +1,12 @@
 pipeline {
-  agent any
+  agent { docker { image 'python:3.10.7-alpine' } }
   stages {
-    stage('hello') {
+    stage('build') {
+            steps {
+                sh 'python --version'
+            }
+        }
+    stage('readfile') {
       steps {
          script {
            println("${env.WORKSPACE}/${env.JOB_NAME}/config/sql/test1.sql")
