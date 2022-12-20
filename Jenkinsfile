@@ -13,6 +13,7 @@ pipeline {
            println("${env.WORKSPACE}/config/sql/test1.sql")
            def data = readFile(file: "${env.WORKSPACE}/config/sql/test1.sql")
            println(data)
+           sh 'python3 hello.py'
           }
         }        
       }
