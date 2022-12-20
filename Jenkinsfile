@@ -4,6 +4,8 @@ pipeline {
     stage('build') {
             steps {
               sh 'python3 --version'
+              sh 'pip --version'
+              sh 'pip show pandas'
             }
         }
     stage('readfile') {
