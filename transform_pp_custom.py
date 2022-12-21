@@ -16,14 +16,14 @@ for name in file_names:
     file_path = file_loc + name + ".csv"
     print(file_path)
 
-    # df = pd.read_csv(file_path, sep=',')
-    # index_name = df[~df[input_version].isin(['Y'])].index
-    # df.drop(index_name, inplace=True)
-    #
-    # for v in all_version:
-    #     del df[v]
+    df = pd.read_csv(file_path, sep=',')
+    index_name = df[~df[input_version].isin(['Y'])].index
+    df.drop(index_name, inplace=True)
+    
+    for v in all_version:
+        del df[v]
 
     target_file_path = workspace + "/config/mapping/" + name + ".csv"
     target_file_path = target_file_path.replace('JBI_master', 'JBI_' + version)
     print(target_file_path)
-    # df.to_csv(target_file_path, sep=',', encoding='utf-8', index=False)
+    df.to_csv(target_file_path, sep=',', encoding='utf-8', index=False)
