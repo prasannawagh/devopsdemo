@@ -1,11 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('clean_workspace') {
-      steps {
-        deleteDir()
-      }
-    }
+//     stage('clean_workspace') {
+//       steps {
+//         deleteDir()
+//       }
+//     }
     stage('build') {
       steps {
         sh 'python3 --version'
