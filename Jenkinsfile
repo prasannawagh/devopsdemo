@@ -18,7 +18,7 @@ pipeline {
         withCredentials([gitUsernamePassword(credentialsId: 'github-prasannawagh', gitToolName: 'Default')]) {
           sh("git fetch --all")
           sh("git branch --show-current")
-          sh("git checkout -b myFeature2 origin/main")
+          sh("git checkout -b myFeature3 origin/main")
           sh("git branch --show-current")
         }
       }
@@ -45,8 +45,8 @@ pipeline {
       steps {
         script {
           sh 'git branch --show-current'
-          sh("git commit 'transformed file'")
-          sh("git push --all")
+          sh("git commit -m 'transformed file'")
+          sh("git push -u origin myFeature3")
         }
       }
     }
