@@ -18,7 +18,7 @@ pipeline {
         withCredentials([gitUsernamePassword(credentialsId: 'github-prasannawagh', gitToolName: 'Default')]) {
           sh("git fetch --all")
           sh("git branch --show-current")
-          sh("git checkout -b myFeature4 origin/main")
+          sh("git checkout -b myFeature5 origin/main")
           sh("git branch --show-current")
         }
       }
@@ -46,8 +46,10 @@ pipeline {
         script {
            withCredentials([gitUsernamePassword(credentialsId: 'github-prasannawagh', gitToolName: 'Default')]) {
             sh 'git branch --show-current'
+            sh("git config --global user.email 'prasanna.wagh@gmail.com'")
+            sh("git config --global user.name 'pwagh'")
             sh("git commit -m 'transformed file'")
-            sh("git push -u origin myFeature3")
+            sh("git push -u origin myFeature5")
            }
         }
       }
