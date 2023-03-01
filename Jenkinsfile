@@ -13,6 +13,15 @@ pipeline {
         sh 'pip show pandas'
       }
     }
+    stage('git'){
+      steps {
+        withCredentials([gitUsernamePassword(credentialsId: 'github-prasannawagh', gitToolName: 'Default')]) {
+          sh("git branch --show-current")
+          sh("git checkout -b myFeature main")
+          sh("git branch --show-current")
+        }
+      }
+    }
     stage('readfile') {
       steps {
         script {
