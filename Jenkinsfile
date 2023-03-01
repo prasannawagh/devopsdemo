@@ -44,9 +44,11 @@ pipeline {
     stage('git_push') {
       steps {
         script {
-          sh 'git branch --show-current'
-          sh("git commit -m 'transformed file'")
-          sh("git push -u origin myFeature3")
+           withCredentials([gitUsernamePassword(credentialsId: 'github-prasannawagh', gitToolName: 'Default')]) {
+            sh 'git branch --show-current'
+            sh("git commit -m 'transformed file'")
+            sh("git push -u origin myFeature3")
+           }
         }
       }
     }
