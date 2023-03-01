@@ -16,8 +16,9 @@ pipeline {
     stage('git'){
       steps {
         withCredentials([gitUsernamePassword(credentialsId: 'github-prasannawagh', gitToolName: 'Default')]) {
+          sh("git fetch --all")
           sh("git branch --show-current")
-          sh("git checkout -b myFeature main")
+          sh("git checkout -b myFeature origin/main")
           sh("git branch --show-current")
         }
       }
