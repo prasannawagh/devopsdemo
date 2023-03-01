@@ -34,13 +34,22 @@ pipeline {
         }
       }
     }
-  //  stage('transform') {
-   //   steps {
-   //     script {
-     //     sh 'python3 transform_pp_custom.py "1.15" "version_komodo"'
-     //   }
-     // }
-   // }
+    stage('transform') {
+      steps {
+        script {
+          sh 'python3 transform_pp_custom.py "1.15" "version_komodo"'
+        }
+      }
+    }
+    stage('git_push') {
+      steps {
+        script {
+          sh 'git branch --show-current'
+          sh("git commit 'transformed file'")
+          sh("git push --all")
+        }
+      }
+    }
     //stage('upload_to_s3') {
       //steps {
         //script {
