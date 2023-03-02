@@ -21,7 +21,7 @@ pipeline {
         withCredentials([gitUsernamePassword(credentialsId: 'github-prasannawagh', gitToolName: 'Default')]) {
           sh("git fetch --all")
           sh("git branch --show-current")
-          sh("git checkout -b myFeature6 origin/main")
+          sh("git checkout -b ${params.FEATURE_NAME} origin/main")
           sh("git branch --show-current")
         }
       }
@@ -53,7 +53,7 @@ pipeline {
             sh("git config --global user.name 'pwagh'")
             sh("git add .")
             sh("git commit -am 'transformed file'")
-            sh("git push -u origin myFeature6")
+            sh("git push -u origin ${params.FEATURE_NAME}")
            }
         }
       }
