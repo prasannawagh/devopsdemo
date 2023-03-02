@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  parameters {
+        string(name: 'FEATURE_NAME', defaultValue: 'no_feature', description: 'Give the name of the feature.')
+    }
   stages {
     // stage('clean_workspace') {
     //   steps {
